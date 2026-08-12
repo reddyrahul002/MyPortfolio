@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1f1c"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="700" fill="url(#bg)"/>
+  <g stroke="#f2e3b8" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.85">
+    <polyline points="70,380 130,300 170,420 220,260 270,360 330,300" />
+    <polyline points="70,460 130,420 170,480 220,400 270,440 330,420" opacity="0.5"/>
+  </g>
+  <g fill="#2dd4bf" opacity="0.9">
+    <circle cx="70" cy="380" r="7"/>
+    <circle cx="130" cy="300" r="7"/>
+    <circle cx="170" cy="420" r="7"/>
+    <circle cx="220" cy="260" r="7"/>
+    <circle cx="270" cy="360" r="7"/>
+    <circle cx="330" cy="300" r="7"/>
+  </g>
+</svg>
