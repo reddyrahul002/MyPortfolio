@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f6f3ec;
+  --foreground: #15140f;
+  --card: #fffdf8;
+  --card-foreground: #15140f;
+  --border: #e2dbca;
+  --muted: #6f6a5b;
+  --muted-bg: #ece5d5;
+  --accent: #0f766e;
+  --accent-2: #2dd4bf;
+  --accent-foreground: #f6f3ec;
+  --ring: #0f766e;
+  --nav-bg: rgba(246, 243, 236, 0.78);
+  /* Saturated, darker pair tuned to stay clearly visible tracing a border
+     over light paper/white cards — the plain --accent/--accent-2 pair reads
+     too washed out at 1px border width in light mode. */
+  --border-glow-1: #d97706;
+  --border-glow-2: #0f766e;
+}
+
+.dark {
+  --background: #0b0b09;
+  --foreground: #f3efe4;
+  --card: #141310;
+  --card-foreground: #f3efe4;
+  --border: #27251b;
+  --muted: #a6a190;
+  --muted-bg: #17160f;
+  --accent: #2dd4bf;
+  --accent-2: #5eead4;
+  --accent-foreground: #0b0b09;
+  --ring: #2dd4bf;
+  --nav-bg: rgba(11, 11, 9, 0.72);
+  /* Bright pair tuned to pop against near-black cards. */
+  --border-glow-1: #fcd34d;
+  --border-glow-2: #5eead4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--card-foreground);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-foreground);
+  --color-secondary: var(--muted-bg);
+  --color-secondary-foreground: var(--foreground);
+  --color-ring: var(--ring);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.text-gradient {
+  background-image: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.noise-mask {
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+}
+
+/* Marquee */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.marquee-track {
+  animation: marquee-left 32s linear infinite;
+}
+.marquee-track--reverse {
+  animation: marquee-right 32s linear infinite;
+}
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
