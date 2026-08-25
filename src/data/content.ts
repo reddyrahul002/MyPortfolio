@@ -89,7 +89,7 @@ export const experiences: ExperienceEntry[] = [
     company: "ADPMN",
     companyLogo: "/images/adpmn.jpg",
     location: "Melbourne, VIC",
-    period: "Sep 2025 – Feb 2026",
+    period: "Nov 2025 – Feb 2026",
     summary:
       "Full-stack work spanning React frontends, Java Spring Boot microservices, and cloud-native infrastructure on GCP for a production e-commerce platform.",
     bullets: [
